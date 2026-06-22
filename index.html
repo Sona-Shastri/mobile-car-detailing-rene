@@ -283,7 +283,23 @@ footer { background: #050f1a; color: rgba(255,255,255,0.7); padding: 3.5rem 0 2r
   .menu-toggle { display:block; }
   .nav-cta .btn-primary { display:none; }   /* Book Now lives in hero + menu on small screens */
   .float-badge { display:none; }            /* prevent overlap with hero text */
+
+  /* working slide-down mobile menu */
+  .nav.open .nav-links{
+    display:flex; flex-direction:column; align-items:stretch;
+    position:absolute; top:100%; left:0; right:0;
+    background:var(--navy-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    margin:0; padding:0.4rem 6vw 1.2rem; gap:0; box-shadow:var(--shadow);
+  }
+  .nav.open .nav-links a{
+    width:100%; padding:0.95rem 0.2rem; font-size:1.06rem; color:#fff;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .nav.open .nav-links .menu-only{
+    display:inline-flex; justify-content:center; border:none; margin-top:1rem; color:#2a1c00;
+  }
 }
+.menu-only{ display:none; }
 @media (max-width: 620px) {
   section { padding: 4rem 0; }
   .cards, .t-cards, .process-row, .fleet-row { grid-template-columns: 1fr; }
@@ -331,11 +347,12 @@ footer { background: #050f1a; color: rgba(255,255,255,0.7); padding: 3.5rem 0 2r
       <a href="#gallery">Gallery</a>
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-primary menu-only">Book Now</a>
     </nav>
     <div class="nav-cta">
       <a href="tel:+16309367901" class="nav-phone">📞 <span class="txt">(630) 936-7901</span></a>
       <a href="#contact" class="btn btn-primary" style="padding:0.7rem 1.3rem;">Book Now</a>
-      <button class="menu-toggle" id="menuToggle">☰</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">☰</button>
     </div>
   </div>
 </header>
@@ -671,10 +688,17 @@ footer { background: #050f1a; color: rgba(255,255,255,0.7); padding: 3.5rem 0 2r
   // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Mobile menu (simple scroll-to behaviour)
-  document.getElementById('menuToggle').addEventListener('click', function(){
-    document.getElementById('about').scrollIntoView({behavior:'smooth'});
+  // Mobile menu: open/close a real dropdown with all links
+  const navEl = document.querySelector('header.nav');
+  const toggle = document.getElementById('menuToggle');
+  function closeMenu(){ navEl.classList.remove('open'); toggle.textContent='☰'; toggle.setAttribute('aria-expanded','false'); }
+  toggle.addEventListener('click', function(){
+    const open = navEl.classList.toggle('open');
+    toggle.textContent = open ? '✕' : '☰';
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
+  navEl.querySelectorAll('.nav-links a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  document.addEventListener('click', function(e){ if(navEl.classList.contains('open') && !navEl.contains(e.target)) closeMenu(); });
 
   // Scroll reveal
   const io = new IntersectionObserver((entries) => {
