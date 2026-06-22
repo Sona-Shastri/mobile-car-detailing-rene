@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mobile Car Detailing Rene — Bolingbrook, IL</title>
+<meta name="description" content="Mobile Car Detailing Rene brings professional interior & exterior detailing to you in Bolingbrook, IL. Cars, semi trucks, boats & motorcycles. Polished, waxed, spotless." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --navy: #0b1f33;
+  --navy-deep: #071524;
+  --steel: #14304d;
+  --accent: #f5b301;        /* warm gold */
+  --accent-soft: #ffd45e;
+  --cyan: #38bdf8;
+  --ink: #0d1b2a;
+  --paper: #f6f8fb;
+  --paper-2: #eef2f7;
+  --muted: #6b7a8d;
+  --line: rgba(255,255,255,0.10);
+  --shadow: 0 18px 50px -20px rgba(7,21,36,0.45);
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4 { font-family: 'Sora', sans-serif; line-height: 1.15; letter-spacing: -0.01em; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.container { width: min(1160px, 92vw); margin: 0 auto; }
+.accent { color: var(--accent); }
+.eyebrow {
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent);
+  display: inline-flex; align-items: center; gap: 0.6rem;
+}
+.eyebrow::before { content:""; width: 26px; height: 2px; background: var(--accent); display:inline-block; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  padding: 0.95rem 1.7rem; border-radius: 999px; white-space: nowrap;
+  font-weight: 600; font-size: 0.98rem; cursor: pointer;
+  border: 1px solid transparent; transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn-primary { background: var(--accent); color: #2a1c00; box-shadow: 0 12px 30px -10px rgba(245,179,1,0.6); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -12px rgba(245,179,1,0.7); }
+.btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
+.btn-ghost:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+.btn-dark { background: var(--navy); color: #fff; }
+.btn-dark:hover { transform: translateY(-2px); background: var(--steel); }
+
+/* ---------- Nav ---------- */
+header.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(7,21,36,0.85); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+.brand { display: flex; align-items: center; gap: 0.75rem; color: #fff; }
+.brand .logo {
+  width: 42px; height: 42px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), #ff8a00);
+  display: grid; place-items: center; font-family:'Sora'; font-weight: 800; color:#2a1c00; font-size: 1.2rem;
+  box-shadow: 0 8px 20px -8px rgba(245,179,1,0.7);
+}
+.brand .logo svg { width: 82%; height: 82%; display: block; }
+.brand b { font-family:'Sora'; font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; }
+.brand span { display:block; font-size: 0.7rem; color: var(--cyan); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-links a { color: rgba(255,255,255,0.78); font-size: 0.93rem; font-weight: 500; transition: color .15s; }
+.nav-links a:hover { color: #fff; }
+.nav-cta { display:flex; align-items:center; gap: 1rem; }
+.nav-phone { color:#fff; font-weight:600; font-size:0.95rem; display:flex; align-items:center; gap:0.45rem; }
+.menu-toggle { display:none; background:none; border:none; color:#fff; font-size:1.6rem; cursor:pointer; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative; color: #fff; overflow: hidden;
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(56,189,248,0.18), transparent 60%),
+    radial-gradient(900px 500px at 0% 110%, rgba(245,179,1,0.12), transparent 55%),
+    linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+}
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; padding: 5.5rem 0 6rem; max-width: 46rem; }
+.hero h1 { font-size: clamp(2.6rem, 5vw, 4.1rem); font-weight: 800; margin: 1.4rem 0 1.2rem; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p.lead { font-size: 1.15rem; color: rgba(255,255,255,0.82); max-width: 33rem; }
+.hero-actions { display: flex; gap: 1rem; margin-top: 2.2rem; flex-wrap: wrap; }
+.hero-stats { display:flex; gap: 2.5rem; margin-top: 3rem; flex-wrap: wrap; }
+.hero-stats .stat b { font-family:'Sora'; font-size: 1.9rem; display:block; }
+.hero-stats .stat span { font-size: 0.85rem; color: rgba(255,255,255,0.62); }
+.stars { color: var(--accent); letter-spacing: 2px; }
+
+/* Hero visual card */
+.hero-visual { position: relative; }
+.car-card {
+  width: 100%; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.12); aspect-ratio: 4/5;
+  background:
+    radial-gradient(120% 80% at 50% 0%, #1c4a73 0%, #0c2c47 55%, #07192a 100%);
+  position: relative;
+}
+.car-card svg { position:absolute; inset:0; width:100%; height:100%; }
+.float-badge {
+  position: absolute; background: #fff; color: var(--ink);
+  border-radius: 16px; padding: 0.9rem 1.1rem; box-shadow: var(--shadow);
+  display:flex; align-items:center; gap: 0.7rem; font-size: 0.9rem; font-weight: 600;
+}
+.float-badge .ic { width:38px; height:38px; border-radius:10px; background: var(--paper-2); display:grid; place-items:center; font-size:1.2rem; }
+.float-badge.tl { top: 6%; left: -8%; }
+.float-badge.br { bottom: 8%; right: -6%; }
+.float-badge small { display:block; font-weight:500; color: var(--muted); font-size:0.74rem; }
+
+.marquee {
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  background: rgba(0,0,0,0.2); overflow: hidden; white-space: nowrap;
+}
+.marquee div { display:inline-block; padding: 0.9rem 0; animation: slide 26s linear infinite; }
+.marquee span { color: rgba(255,255,255,0.65); font-weight:600; font-size:0.9rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 2rem; }
+.marquee span::after { content:"◆"; color: var(--accent); margin-left: 2rem; font-size:0.6rem; vertical-align: middle; }
+@keyframes slide { from { transform: translateX(0);} to { transform: translateX(-50%);} }
+
+/* ---------- Sections ---------- */
+section { padding: 6rem 0; }
+.section-head { text-align: center; max-width: 40rem; margin: 0 auto 3.5rem; }
+.section-head h2 { font-size: clamp(2rem, 3.5vw, 2.9rem); margin: 1rem 0 0.8rem; }
+.section-head p { color: var(--muted); font-size: 1.07rem; }
+
+/* About */
+.about { background: var(--paper); }
+.about-grid { display:grid; grid-template-columns: 1fr; gap: 4rem; align-items:center; max-width: 46rem; }
+.about h2 { font-size: clamp(2rem, 3.5vw, 2.9rem); margin: 1rem 0 1.3rem; }
+.about p { color: var(--muted); margin-bottom: 1.1rem; font-size: 1.05rem; }
+.about-list { list-style:none; display:grid; gap: 0.9rem; margin-top: 1.6rem; }
+.about-list li { display:flex; gap: 0.8rem; align-items:flex-start; font-weight: 500; color: var(--ink); }
+.about-list .check { color: var(--accent); font-weight: 800; flex-shrink:0; }
+.about-visual {
+  border-radius: var(--radius); overflow:hidden; box-shadow: var(--shadow);
+  background: linear-gradient(150deg, var(--navy), var(--steel)); aspect-ratio: 5/4; position: relative;
+}
+.about-visual svg { width:100%; height:100%; }
+
+/* Services */
+.services { background: linear-gradient(180deg, var(--paper-2), var(--paper)); }
+.cards { display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+.card {
+  background:#fff; border-radius: var(--radius); padding: 2.2rem 1.9rem;
+  border: 1px solid rgba(11,31,51,0.07); box-shadow: 0 12px 30px -22px rgba(7,21,36,0.35);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
+}
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: rgba(245,179,1,0.4); }
+.card .ic {
+  width: 56px; height: 56px; border-radius: 14px; display:grid; place-items:center;
+  background: linear-gradient(135deg, rgba(245,179,1,0.18), rgba(56,189,248,0.18));
+  font-size: 1.6rem; margin-bottom: 1.3rem;
+}
+.card h3 { font-size: 1.25rem; margin-bottom: 0.6rem; }
+.card p { color: var(--muted); font-size: 0.97rem; }
+
+/* Fleet strip */
+.fleet { background: var(--navy); color:#fff; }
+.fleet .section-head h2 { color:#fff; }
+.fleet .section-head p { color: rgba(255,255,255,0.7); }
+.fleet-row { display:grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; }
+.fleet-item {
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 2rem 1.4rem; text-align:center;
+  background: rgba(255,255,255,0.03); transition: background .2s, transform .2s;
+}
+.fleet-item:hover { background: rgba(245,179,1,0.08); transform: translateY(-4px); }
+.fleet-item .emoji { font-size: 2.4rem; }
+.fleet-item h4 { margin-top: 0.8rem; font-size: 1.05rem; }
+.fleet-item span { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+/* Process */
+.process-row { display:grid; grid-template-columns: repeat(4,1fr); gap: 1.6rem; }
+.step { position: relative; padding: 2rem 1.6rem; border-radius: var(--radius); background:#fff; border:1px solid rgba(11,31,51,0.07); }
+.step .num { font-family:'Sora'; font-weight:800; font-size: 2.6rem; color: rgba(245,179,1,0.35); line-height:1; }
+.step h3 { margin: 0.6rem 0 0.5rem; font-size: 1.18rem; }
+.step p { color: var(--muted); font-size: 0.95rem; }
+
+/* Testimonials */
+.testimonials { background: linear-gradient(180deg, var(--paper), var(--paper-2)); }
+.t-cards { display:grid; grid-template-columns: repeat(3,1fr); gap: 1.6rem; }
+.t-card { background:#fff; border-radius: var(--radius); padding: 2.1rem 1.9rem; box-shadow: 0 12px 30px -22px rgba(7,21,36,0.35); border:1px solid rgba(11,31,51,0.06); }
+.t-card .stars { font-size: 1rem; margin-bottom: 1rem; }
+.t-card p.quote { font-size: 1.05rem; color: var(--ink); font-weight: 500; margin-bottom: 1.5rem; }
+.t-who { display:flex; align-items:center; gap: 0.8rem; }
+.t-who .av { width: 44px; height:44px; border-radius:50%; display:grid; place-items:center; font-weight:700; color:#fff; font-family:'Sora'; }
+.t-who b { font-size: 0.96rem; }
+.t-who span { font-size: 0.82rem; color: var(--muted); }
+.google-bar {
+  display:flex; align-items:center; justify-content:center; gap: 1rem; margin-top: 3rem;
+  background:#fff; border-radius: 999px; padding: 1rem 1.8rem; width: fit-content; margin-left:auto; margin-right:auto;
+  box-shadow: 0 12px 30px -22px rgba(7,21,36,0.35); font-weight: 600;
+}
+.google-bar .g { font-family:'Sora'; font-weight:800; font-size:1.3rem; }
+.google-bar .g b:nth-child(1){color:#4285F4}
+.gword span:nth-child(1){color:#4285F4}.gword span:nth-child(2){color:#EA4335}.gword span:nth-child(3){color:#FBBC05}.gword span:nth-child(4){color:#4285F4}.gword span:nth-child(5){color:#34A853}.gword span:nth-child(6){color:#EA4335}
+.gword { font-family:'Sora'; font-weight:800; font-size: 1.25rem; }
+
+/* CTA / Contact */
+.contact { background: var(--navy-deep); color:#fff; position: relative; overflow:hidden; }
+.contact::before { content:""; position:absolute; inset:0; background: radial-gradient(800px 400px at 90% 10%, rgba(56,189,248,0.15), transparent 60%); }
+.contact-grid { display:grid; grid-template-columns: 1fr 0.9fr; gap: 4rem; position: relative; }
+.contact h2 { font-size: clamp(2rem,3.5vw,2.9rem); margin-bottom: 1rem; }
+.contact p.sub { color: rgba(255,255,255,0.75); font-size: 1.08rem; max-width: 30rem; margin-bottom: 2rem; }
+.info-list { display:grid; gap: 1.2rem; }
+.info-item { display:flex; gap: 1rem; align-items:center; }
+.info-item .ic { width: 50px; height:50px; border-radius: 14px; background: rgba(255,255,255,0.07); display:grid; place-items:center; font-size:1.3rem; border:1px solid var(--line); }
+.info-item b { display:block; font-size:1.02rem; }
+.info-item span { color: rgba(255,255,255,0.65); font-size: 0.92rem; }
+.contact-card {
+  background:#fff; color: var(--ink); border-radius: 22px; padding: 2.3rem; box-shadow: var(--shadow);
+}
+.contact-card h3 { font-size: 1.35rem; margin-bottom: 0.4rem; }
+.contact-card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.4rem; }
+.field { margin-bottom: 1rem; }
+.field label { font-size: 0.85rem; font-weight: 600; display:block; margin-bottom: 0.35rem; }
+.field input, .field textarea, .field select {
+  width: 100%; padding: 0.85rem 1rem; border-radius: 12px; border: 1px solid #dde4ec;
+  font-family: inherit; font-size: 0.95rem; background: var(--paper); transition: border-color .15s, box-shadow .15s;
+}
+.field input:focus, .field textarea:focus, .field select:focus { outline:none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(245,179,1,0.2); }
+.contact-card .btn-primary { width:100%; justify-content:center; }
+.form-note { font-size: 0.8rem; color: var(--muted); text-align:center; margin-top: 0.8rem; }
+
+/* Footer */
+footer { background: #050f1a; color: rgba(255,255,255,0.7); padding: 3.5rem 0 2rem; }
+.foot-grid { display:flex; justify-content:space-between; align-items:flex-start; gap: 2rem; flex-wrap: wrap; }
+.foot-brand { max-width: 22rem; }
+.foot-brand p { font-size: 0.92rem; margin-top: 1rem; }
+.foot-links { display:flex; gap: 4rem; flex-wrap: wrap; }
+.foot-col h5 { color:#fff; font-family:'Sora'; font-size: 0.95rem; margin-bottom: 1rem; }
+.foot-col a { display:block; font-size: 0.9rem; margin-bottom: 0.6rem; color: rgba(255,255,255,0.65); transition: color .15s; }
+.foot-col a:hover { color: var(--accent); }
+.foot-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2.5rem; padding-top: 1.5rem; text-align:center; font-size: 0.84rem; color: rgba(255,255,255,0.45); }
+
+/* Reveal animation */
+.reveal { opacity:0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity:1; transform: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 920px) {
+  .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .hero-visual { order: -1; width: 100%; max-width: 360px; margin: 0 auto; }
+  .cards, .t-cards, .process-row { grid-template-columns: 1fr 1fr; }
+  .fleet-row { grid-template-columns: 1fr 1fr; }
+  .nav-links { display:none; }
+  .menu-toggle { display:block; }
+  .nav-cta .btn-primary { display:none; }   /* Book Now lives in hero + menu on small screens */
+  .float-badge { display:none; }            /* prevent overlap with hero text */
+}
+@media (max-width: 620px) {
+  section { padding: 4rem 0; }
+  .cards, .t-cards, .process-row, .fleet-row { grid-template-columns: 1fr; }
+  .nav-phone span.txt { display:none; }
+  .nav-cta .btn-primary { display:none; }      /* keep nav clean; Book Now via menu/hero */
+  .brand b { font-size: 0.98rem; }
+  .brand span { font-size: 0.62rem; }
+  .hero-grid { padding: 3rem 0 4rem; }
+  .hero-stats { gap: 1.6rem; }
+  .float-badge { display:none; }                 /* avoid overlap on small screens */
+  .foot-links { gap: 2.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="brand">
+      <div class="logo">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="Mobile Car Detailing Rene logo">
+          <!-- car body -->
+          <path d="M9 30.5C9 26.9 11.4 25.1 14.2 24.5 15.5 20.9 18.5 18.9 22 18.9L26 18.9C29.5 18.9 32.5 20.9 33.8 24.5 36.6 25.1 39 26.9 39 30.5Z" fill="#2a1c00"/>
+          <!-- windshield / cabin -->
+          <path d="M18.8 24.2 20.4 21C20.8 20.2 21.4 19.8 22.2 19.8L25.8 19.8C26.6 19.8 27.2 20.2 27.6 21L29.2 24.2Z" fill="#f5b301"/>
+          <rect x="23.4" y="19.8" width="1.1" height="4.4" fill="#2a1c00"/>
+          <!-- wheels -->
+          <circle cx="16.5" cy="30.5" r="3.4" fill="#2a1c00"/><circle cx="16.5" cy="30.5" r="1.5" fill="#f5b301"/>
+          <circle cx="31.5" cy="30.5" r="3.4" fill="#2a1c00"/><circle cx="31.5" cy="30.5" r="1.5" fill="#f5b301"/>
+          <!-- shine sparkle -->
+          <path d="M35.8 11 36.95 14.15 40.1 15.3 36.95 16.45 35.8 19.6 34.65 16.45 31.5 15.3 34.65 14.15Z" fill="#2a1c00"/>
+        </svg>
+      </div>
+      <div>
+        <b>Detailing Rene</b>
+        <span>Mobile • Bolingbrook IL</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#fleet">What We Clean</a>
+      <a href="#process">Process</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+16309367901" class="nav-phone">📞 <span class="txt">(630) 936-7901</span></a>
+      <a href="#contact" class="btn btn-primary" style="padding:0.7rem 1.3rem;">Book Now</a>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Premium Mobile Detailing</span>
+      <h1>We bring the <em>showroom shine</em> right to your driveway.</h1>
+      <p class="lead">Professional interior &amp; exterior detailing for cars, semi trucks, boats and motorcycles — polished, waxed and spotless. Just call or text, and Rene comes to you in Bolingbrook and nearby.</p>
+      <div class="hero-actions">
+        <a href="tel:+16309367901" class="btn btn-primary">📞 Call / Text Rene</a>
+        <a href="#services" class="btn btn-ghost">View Services →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <b>4.7<span style="font-size:1rem;color:var(--accent)">★</span></b>
+          <span>Google Rating</span>
+        </div>
+        <div class="stat">
+          <b>37+</b>
+          <span>Happy Customers</span>
+        </div>
+        <div class="stat">
+          <b>100%</b>
+          <span>Mobile — We Come to You</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="marquee">
+    <div>
+      <span>Cars</span><span>Semi Trucks</span><span>Boats</span><span>Motorcycles</span><span>Interior Detailing</span><span>Polish &amp; Wax</span><span>Mobile Service</span>
+      <span>Cars</span><span>Semi Trucks</span><span>Boats</span><span>Motorcycles</span><span>Interior Detailing</span><span>Polish &amp; Wax</span><span>Mobile Service</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about reveal" id="about">
+  <div class="container about-grid">
+    <div>
+      <span class="eyebrow">Who We Are</span>
+      <h2>Detailing done with pride, right where you park.</h2>
+      <p>Mobile Car Detailing Rene is a locally trusted detailing service based in Bolingbrook, Illinois. Rene brings the tools, the products and the know-how directly to you — no waiting rooms, no dropping your vehicle off for the day.</p>
+      <p>From a quick interior refresh to a full polish and wax, every job is done by hand with attention to the details most shops rush past. Reasonable prices, honest work, and a finish you'll want to show off.</p>
+      <ul class="about-list">
+        <li><span class="check">✓</span> Fully mobile — we come to your home or work</li>
+        <li><span class="check">✓</span> Interior, exterior, polish &amp; wax</li>
+        <li><span class="check">✓</span> Cars, semi trucks, boats &amp; motorcycles</li>
+        <li><span class="check">✓</span> Friendly service at a fair, reasonable price</li>
+      </ul>
+      <a href="#contact" class="btn btn-dark" style="margin-top:2rem;">Get a Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services reveal" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" style="justify-content:center;">What We Do</span>
+      <h2>Detailing services for a flawless finish</h2>
+      <p>Pick a single service or bundle them into a full detail — whatever your vehicle needs to look and feel brand new.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="ic">🧽</div>
+        <h3>Interior Deep Clean</h3>
+        <p>Vacuum, steam, shampoo and condition. Seats, carpets, dash, vents and every crevice left fresh and spotless.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🚗</div>
+        <h3>Exterior Hand Wash</h3>
+        <p>A careful hand wash that lifts dirt and grime without swirl marks — leaving paint clean and glossy.</p>
+      </div>
+      <div class="card">
+        <div class="ic">✨</div>
+        <h3>Polish &amp; Wax</h3>
+        <p>Restore depth and shine to your paint, then seal it with wax for protection that lasts and turns heads.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🪟</div>
+        <h3>Glass &amp; Trim</h3>
+        <p>Streak-free windows inside and out, plus restored trim so the whole vehicle looks sharp and finished.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🛡️</div>
+        <h3>Full Detail Package</h3>
+        <p>The works — inside and out, polished and waxed. The complete reset your vehicle deserves.</p>
+      </div>
+      <div class="card">
+        <div class="ic">📍</div>
+        <h3>Mobile &amp; On-Site</h3>
+        <p>We bring everything to your driveway, lot or marina. You don't have to go anywhere — just point us at the vehicle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLEET -->
+<section class="fleet reveal" id="fleet">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" style="justify-content:center;">If It Drives, Floats or Rolls</span>
+      <h2>What we clean</h2>
+      <p>Not just cars. Rene details a wide range of vehicles with the same care and attention.</p>
+    </div>
+    <div class="fleet-row">
+      <div class="fleet-item"><div class="emoji">🚙</div><h4>Cars &amp; SUVs</h4><span>Daily drivers to luxury</span></div>
+      <div class="fleet-item"><div class="emoji">🚛</div><h4>Semi Trucks</h4><span>Cabs &amp; interiors</span></div>
+      <div class="fleet-item"><div class="emoji">⛵</div><h4>Boats</h4><span>Decks &amp; cabins</span></div>
+      <div class="fleet-item"><div class="emoji">🏍️</div><h4>Motorcycles</h4><span>Chrome &amp; detail</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process reveal" id="process">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" style="justify-content:center;">How It Works</span>
+      <h2>Booking is as easy as a text</h2>
+      <p>No apps, no hassle. Four simple steps from "my car's a mess" to "wow."</p>
+    </div>
+    <div class="process-row">
+      <div class="step">
+        <div class="num">01</div>
+        <h3>Call or Text</h3>
+        <p>Reach out to Rene and tell us the vehicle and what you'd like done.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h3>Get a Quote</h3>
+        <p>We give you a fair, reasonable price and a time that works for you.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h3>We Come to You</h3>
+        <p>Rene arrives with everything needed and details on-site, wherever you are.</p>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <h3>Drive Away Fresh</h3>
+        <p>Inspect the shine, hop in, and enjoy a vehicle that feels brand new.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials reveal" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" style="justify-content:center;">Testimonials</span>
+      <h2>What customers are saying</h2>
+      <p>Rated 4.7 stars across 37 Google reviews — here's a taste of the feedback.</p>
+    </div>
+    <div class="t-cards">
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Rene did an excellent job for my Lexus RX 350."</p>
+        <div class="t-who">
+          <div class="av" style="background:#4285F4;">V</div>
+          <div><b>Venkatsrinivas Reddy Muduganti</b><span>Google Review</span></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Excellent work for a reasonable price."</p>
+        <div class="t-who">
+          <div class="av" style="background:#EA4335;">A</div>
+          <div><b>AL Forte</b><span>Google Review</span></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Amazing detail interior cleaning!"</p>
+        <div class="t-who">
+          <div class="av" style="background:#34A853;">A</div>
+          <div><b>Alexander Hardaway</b><span>Google Review</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="google-bar">
+      <span class="gword"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></span>
+      <span style="color:var(--accent)">★ 4.7</span>
+      <span style="color:var(--muted); font-weight:500;">· 37 reviews</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact reveal" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Ready to bring back the shine?</h2>
+      <p class="sub">Call or text Rene for any service — interior, exterior, polished and waxed. We'll get your vehicle booked and back to looking its best.</p>
+      <div class="info-list">
+        <a href="tel:+16309367901" class="info-item">
+          <div class="ic">📞</div>
+          <div><b>(630) 936-7901</b><span>Call or text anytime</span></div>
+        </a>
+        <a href="https://maps.google.com/?q=450+Lily+Cache+Ln,+Bolingbrook,+IL+60440" target="_blank" rel="noopener" class="info-item">
+          <div class="ic">📍</div>
+          <div><b>450 Lily Cache Ln, Bolingbrook, IL 60440</b><span>Serving Bolingbrook &amp; surrounding areas</span></div>
+        </a>
+        <div class="info-item">
+          <div class="ic">🕖</div>
+          <div><b>Open today · Closes 6 PM</b><span>Flexible mobile scheduling</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3>Request a Quote</h3>
+      <p>Tell us about your vehicle and we'll text you right back.</p>
+      <form id="quoteForm">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" required />
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" type="tel" placeholder="(___) ___-____" required />
+        </div>
+        <div class="field">
+          <label for="vehicle">Vehicle &amp; service</label>
+          <select id="vehicle">
+            <option>Car / SUV — Interior</option>
+            <option>Car / SUV — Full Detail</option>
+            <option>Polish &amp; Wax</option>
+            <option>Semi Truck</option>
+            <option>Boat</option>
+            <option>Motorcycle</option>
+            <option>Not sure — recommend something</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">Anything else?</label>
+          <textarea id="msg" rows="3" placeholder="Location, timing, condition..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Request</button>
+        <p class="form-note">Prefer to talk? Call or text (630) 936-7901.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#home" class="brand">
+          <div class="logo">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="Mobile Car Detailing Rene logo">
+          <!-- car body -->
+          <path d="M9 30.5C9 26.9 11.4 25.1 14.2 24.5 15.5 20.9 18.5 18.9 22 18.9L26 18.9C29.5 18.9 32.5 20.9 33.8 24.5 36.6 25.1 39 26.9 39 30.5Z" fill="#2a1c00"/>
+          <!-- windshield / cabin -->
+          <path d="M18.8 24.2 20.4 21C20.8 20.2 21.4 19.8 22.2 19.8L25.8 19.8C26.6 19.8 27.2 20.2 27.6 21L29.2 24.2Z" fill="#f5b301"/>
+          <rect x="23.4" y="19.8" width="1.1" height="4.4" fill="#2a1c00"/>
+          <!-- wheels -->
+          <circle cx="16.5" cy="30.5" r="3.4" fill="#2a1c00"/><circle cx="16.5" cy="30.5" r="1.5" fill="#f5b301"/>
+          <circle cx="31.5" cy="30.5" r="3.4" fill="#2a1c00"/><circle cx="31.5" cy="30.5" r="1.5" fill="#f5b301"/>
+          <!-- shine sparkle -->
+          <path d="M35.8 11 36.95 14.15 40.1 15.3 36.95 16.45 35.8 19.6 34.65 16.45 31.5 15.3 34.65 14.15Z" fill="#2a1c00"/>
+        </svg>
+      </div>
+          <div><b style="color:#fff">Detailing Rene</b><span>Mobile • Bolingbrook IL</span></div>
+        </a>
+        <p>Professional mobile car detailing serving Bolingbrook, Illinois and nearby. Cars, semi trucks, boats &amp; motorcycles — cleaned, polished and waxed.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>Explore</h5>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#fleet">What We Clean</a>
+          <a href="#reviews">Reviews</a>
+        </div>
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <a href="tel:+16309367901">(630) 936-7901</a>
+          <a href="https://maps.google.com/?q=450+Lily+Cache+Ln,+Bolingbrook,+IL+60440" target="_blank" rel="noopener">Bolingbrook, IL</a>
+          <a href="#contact">Request a Quote</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © <span id="year"></span> Mobile Car Detailing Rene · 450 Lily Cache Ln, Bolingbrook, IL 60440 · Built with care.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu (simple scroll-to behaviour)
+  document.getElementById('menuToggle').addEventListener('click', function(){
+    document.getElementById('about').scrollIntoView({behavior:'smooth'});
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Form (demo handler)
+  document.getElementById('quoteForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value || 'there';
+    alert('Thanks, ' + name + '! This is a demo form. To book for real, call or text Rene at (630) 936-7901.');
+  });
+</script>
+</body>
+</html>
